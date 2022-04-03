@@ -3,6 +3,7 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import { FaMailBulk, FaPhoneSquareAlt, FaRegUserCircle } from "react-icons/fa";
 import { IoGitBranchSharp } from "react-icons/io5";
 import { BiBuildings } from "react-icons/bi";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 type DataType = {
@@ -25,7 +26,7 @@ const DocumentPage: NextPage<{ data: DataType | null }> = ({ data }) => {
   const router = useRouter();
   return (
     <Layout>
-      <div className="bg-slate-900 text-white font-body w-full h-screen px-5">
+      <div className="bg-slate-900 text-white font-body overflow-auto w-full h-screen px-5">
         <section className="flex items-center justify-between">
           <div>
             <button
@@ -38,10 +39,10 @@ const DocumentPage: NextPage<{ data: DataType | null }> = ({ data }) => {
                 data && !(data.currentProjectId > 0) && "hidden"
               } bg-indigo-700 text-sm text-white font-bold rounded-md py-2 px-5 border hover:bg-opacity-75 border-indigo-500`}
             >
-              Previous
+              <BsChevronLeft />
             </button>
           </div>
-          <h1 className="text-md sm:text-xl md:text-2xl  lg:text-3xl xl:text-5xl py-3 font-black text-center">
+          <h1 className="text-lg sm:text-xl md:text-2xl  lg:text-3xl xl:text-5xl py-3 font-black text-center">
             {data && data?.currentProjectId + 1} - {data?.topic}
           </h1>
           <div>
@@ -57,12 +58,12 @@ const DocumentPage: NextPage<{ data: DataType | null }> = ({ data }) => {
                 "hidden"
               } text-sm bg-indigo-700 text-white font-bold rounded-md py-2 px-5 border hover:bg-opacity-75 border-indigo-500`}
             >
-              Next
+              <BsChevronRight />
             </button>
           </div>
         </section>
-        <section className="font-thin pt-3 pb-5 flex justify-between items-center text-2xl font-body">
-          <div className="flex font-normal items-center ">
+        <section className="font-thin pt-3 pb-5 flex flex-wrap justify-between items-center text-2xl font-body">
+          <div className="flex w-full md:w-auto font-normal items-center ">
             <FaRegUserCircle className="mr-2" />
             {data?.name}
           </div>
