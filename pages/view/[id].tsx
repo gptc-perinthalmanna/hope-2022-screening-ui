@@ -124,7 +124,8 @@ export const getServerSideProps: GetServerSideProps<{
   const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
   const row = await sheet.getRows();
   const currentRow = row[Number(context.params.id)];
-  if (!currentRow["Email"]) return { props: { data: null } };
+  if (!currentRow) return {notFound: true}
+
   return {
     props: {
       data: {
