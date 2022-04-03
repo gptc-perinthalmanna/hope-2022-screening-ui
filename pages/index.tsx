@@ -2,6 +2,7 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 const IndexPage: NextPage = () => {
   return (
@@ -14,7 +15,9 @@ const IndexPage: NextPage = () => {
           </div>
         </section>
         <section className="text-center mt-14">
-          <button className="rounded-lg bg-violet-700 hover:bg-opacity-80 border-white p-5 text-3xl font-black">View Registrations</button>
+          <Link href="/view/0">
+          <a className="rounded-lg bg-violet-700 hover:bg-opacity-80 border-white p-5 text-3xl font-black">View Registrations</a>
+          </Link>
         </section>
       </div>
     </Layout>
