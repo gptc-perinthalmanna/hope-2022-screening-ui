@@ -1,13 +1,24 @@
-import * as React from 'react'
-import Layout from '../components/Layout'
-import { NextPage } from 'next'
+import * as React from "react";
+import Layout from "../components/Layout";
+import { NextPage } from "next";
+import Image from "next/image";
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
+    <Layout>
+      <div className="bg-slate-900 text-white font-body h-screen">
+        <section className="flex justify-center w-full">
+          <div className="text-center">
+            <Image src="/hope.png" width={200} height={200} />
+            <p className="text-xl text-slate-200 font-body">Project Exhibition and Contest</p>
+          </div>
+        </section>
+        <section className="text-center mt-14">
+          <button className="rounded-lg bg-violet-700 hover:bg-opacity-80 border-white p-5 text-3xl font-black">View Registrations</button>
+        </section>
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
